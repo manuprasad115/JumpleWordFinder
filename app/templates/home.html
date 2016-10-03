@@ -1,0 +1,13 @@
+<h1>Find the jumple word</h1>
+<img  *ngIf="!load"  style="margin-top: 122px;" alt="Image result for loading gif" src="http://www.pozzware.com/images/edit/wait.gif" width="400" height="150">
+<div *ngIf="load" >
+<input type="text" #txt />
+<button (click)="search(txt.value)" >Search</button>
+<button (click)="filterToggle()" >{{ filter ? "Show All" : "Filter Result" }}</button>
+<ul *ngIf="!filter" >
+    <li *ngFor="let word of result">{{word.word}}<span *ngIf="word.found" >--Found</span></li> 
+</ul>
+<ul *ngIf="filter" >
+    <li *ngFor="let word of filteredResult">{{word.word}}</li> 
+</ul>
+</div>
